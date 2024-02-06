@@ -40,7 +40,7 @@ RUN cd RediSearch && make setup && make build
 # Build Redis JSON Module for KeyDB
 
 RUN git clone -b ${REDISJSON_VERSION} --recursive  https://github.com/RedisJSON/RedisJSON.git RedisJSON && \
-    cd RediSearch && git submodule update --recursive --init
+    cd RedisJSON && git submodule update --recursive --init
 RUN RedisJSON/deps/readies/bin/system-setup.py
 RUN cd RedisJSON && make setup && make build
 
