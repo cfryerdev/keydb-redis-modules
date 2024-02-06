@@ -18,6 +18,9 @@ RUN rustup update
 # Setup certs for fetching deps
 
 RUN bash -c 'echo -e Add Enterprise Certs here if behind vpn'
+# ADD /SomeCACertHere.crt /usr/local/share/ca-certificates/SomeCACertHere.crt
+# RUN chmod 644 /usr/local/share/ca-certificates/SomeCACertHere.crt
+# RUN update-ca-certificates
 
 #----------------------------------------------------------------------------------------------
 # Variables used for module building
