@@ -71,6 +71,15 @@ RUN cd RedisJSON && make setup && make build
 
 FROM eqalpha/keydb:${KEY_DB_VERSION} AS prod
 ADD keydb.conf /etc/keydb.conf
+
+# ADD /deps/glibc-2.29.tar.gz ./glibc-2.29.tar.gz
+# RUN chmod +x glibc-2.29.tar.gz
+# RUN tar -zxvf glibc-2.29.tar.gz
+# RUN cd glibc-2.29
+# RUN configure --prefix=/opt/glibc
+# RUN make
+# RUN make install
+
 COPY --from=builder /keydb/RediSearch/bin/linux-x64-release/search/redisearch.so /etc/libs/redisearch.so
 COPY --from=builder /keydb/RedisJSON/bin/linux-x64-release/search/rejson.so /etc/libs/rejson.so
 
